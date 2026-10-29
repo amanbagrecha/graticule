@@ -1,0 +1,81 @@
+{
+ "egm96_15m.i16": {
+  "what": "EGM96 geoid undulation N (WGS84), centimetres",
+  "dtype": "int16 little-endian",
+  "width": 1440,
+  "height": 721,
+  "origin": "row 0 = 90N, col 0 = 0E",
+  "step_deg": 0.25,
+  "registration": "point",
+  "source": "NGA EGM96 via GeographicLib egm96-15 (public domain)"
+ },
+ "etopo_15m.i16": {
+  "what": "ETOPO1 elevation/bathymetry, metres",
+  "dtype": "int16 little-endian",
+  "width": 1441,
+  "height": 721,
+  "origin": "row 0 = 90N, col 0 = 180W",
+  "step_deg": 0.25,
+  "registration": "point",
+  "source": "NOAA ETOPO1 (etopo180, ERDDAP) subsampled every 15 arc-min"
+ },
+ "dem_alps_512.i16": {
+  "what": "Terrain height above mean sea level, metres, around Mont Blanc (Alps)",
+  "dtype": "int16 little-endian",
+  "width": 512,
+  "height": 512,
+  "crs": "EPSG:32632 (WGS 84 / UTM zone 32N)",
+  "proj4": "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs",
+  "units": "metres (easting, northing and height)",
+  "step_m": 90,
+  "layout": "row-major; row 0 = north edge, col 0 = west edge; rows go south, cols go east",
+  "bounds": {
+   "xmin": 311210,
+   "ymin": 5054580,
+   "xmax": 357290,
+   "ymax": 5100660
+  },
+  "geotransform": [
+   311210,
+   90,
+   0,
+   5100660,
+   0,
+   -90
+  ],
+  "registration": "area: value [row][col] is the mean height of the 90 m cell with centre E = xmin + (col + 0.5) * 90, N = ymax - (row + 0.5) * 90",
+  "corners_lonlat": {
+   "nw": [
+    6.560374,
+    46.03347
+   ],
+   "ne": [
+    7.155476,
+    46.044629
+   ],
+   "se": [
+    7.169127,
+    45.630095
+   ],
+   "sw": [
+    6.578419,
+    45.619095
+   ]
+  },
+  "centre_lonlat": [
+   6.8652,
+   45.8326
+  ],
+  "summit_cell": {
+   "col": 255,
+   "row": 255,
+   "height_m": 4774
+  },
+  "range_m": [
+   492,
+   4786
+  ],
+  "grid_north": "grid north is UTM north; true north is 1.53 degrees east of grid north at the centre (meridian convergence -1.53 degrees)",
+  "source": "AWS Terrain Tiles, Terrarium encoding (height = R * 256 + G + B / 256 - 32768), zoom 12, mostly SRTM and EU-DEM; each cell is the mean of 3 x 3 bilinear samples; built by dev/make_dem.mjs"
+ }
+}

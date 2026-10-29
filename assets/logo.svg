@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <mask id="g-behind" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+      <rect width="64" height="64" fill="#fff"/>
+      <circle cx="32" cy="32" r="22.6" fill="#000"/>
+    </mask>
+  </defs>
+  <g stroke="#b85217" stroke-width="1.5" vector-effect="non-scaling-stroke">
+    <path d="M3.47 41.27 A30 9 -18 0 1 60.53 22.73" mask="url(#g-behind)" opacity=".55" vector-effect="non-scaling-stroke"/>
+  </g>
+  <g stroke="#3f3c37" stroke-width="1.5">
+    <circle cx="32" cy="32" r="22" vector-effect="non-scaling-stroke"/>
+    <path d="M32 54 A11 22 0 0 1 32 10" opacity=".3" vector-effect="non-scaling-stroke"/>
+    <path d="M32 10 A11 22 0 0 1 32 54" vector-effect="non-scaling-stroke"/>
+    <path d="M12.95 21.8 A19.05 7.14 0 0 1 51.05 21.8" opacity=".3" vector-effect="non-scaling-stroke"/>
+    <path d="M12.95 21.8 A19.05 7.14 0 0 0 51.05 21.8" vector-effect="non-scaling-stroke"/>
+  </g>
+  <g stroke="#b85217" stroke-width="1.5">
+    <path d="M60.53 22.73 A30 9 -18 0 1 3.47 41.27" vector-effect="non-scaling-stroke"/>
+  </g>
+  <g transform="translate(20.69 43.97) rotate(171.37)">
+    <path d="M-10 0H-4M4 0H10" stroke="#b85217" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+    <rect x="-2.6" y="-2.6" width="5.2" height="5.2" rx="1" fill="#b85217"/>
+  </g>
+</svg>

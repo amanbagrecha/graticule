@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="fused-app" />
+<meta name="fused-app-id" content="graticule-24ed6079" />
+<meta name="fused-api-version" content="1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>Graticule</title>
+<style>
+  html, body { height: 100%; margin: 0; background: #faf8f3; color: #1a1917; }
+  body { font: 400 14px/21px -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; overflow: hidden; }
+  .boot { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .boot-art { width: 160px; height: 160px; opacity: .18; }
+  .preview { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; background: #faf8f3; }
+  .preview-row { display: flex; align-items: center; gap: 12px; }
+  .preview-name { font: 600 24px/28px "Iowan Old Style", Charter, Georgia, serif; letter-spacing: -0.01em; }
+  .preview-line { font: 400 15px/22px "Iowan Old Style", Charter, Georgia, serif; color: #6b665e; }
+  .preview-art { width: 220px; height: 220px; opacity: .28; }
+</style>
+<script>
+(function () {
+  function isPreview() {
+    if (new URLSearchParams(location.search).get("_preview") === "1") return true;
+    try { let w = window; while (w.parent && w.parent !== w) { w = w.parent; if (new URLSearchParams(w.location.search).get("_preview") === "1") return true; } } catch (e) {}
+    return false;
+  }
+  var mark = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs><mask id="pm" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64"><rect width="64" height="64" fill="#fff"/><circle cx="32" cy="32" r="22.6" fill="#000"/></mask></defs><path d="M3.47 41.27 A30 9 -18 0 1 60.53 22.73" mask="url(#pm)" stroke="#b85217" stroke-width="1.5" opacity=".55"/><g stroke="#3f3c37" stroke-width="1.5"><circle cx="32" cy="32" r="22"/><path d="M32 54 A11 22 0 0 1 32 10" opacity=".3"/><path d="M32 10 A11 22 0 0 1 32 54"/><path d="M12.95 21.8 A19.05 7.14 0 0 1 51.05 21.8" opacity=".3"/><path d="M12.95 21.8 A19.05 7.14 0 0 0 51.05 21.8"/></g><path d="M60.53 22.73 A30 9 -18 0 1 3.47 41.27" stroke="#b85217" stroke-width="1.5"/><g transform="translate(20.69 43.97) rotate(171.37)"><path d="M-10 0H-4M4 0H10" stroke="#b85217" stroke-width="1.5"/><rect x="-2.6" y="-2.6" width="5.2" height="5.2" rx="1" fill="#b85217"/></g></svg>';
+  var globe = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" class="ART"><g fill="none" stroke="#3f3c37" stroke-width="1" stroke-linecap="round"><circle cx="100" cy="100" r="80"/><ellipse cx="100" cy="100" rx="40" ry="80"/><ellipse cx="100" cy="100" rx="69" ry="80"/><path d="M20 100h160"/><path d="M31 60c38 14 100 14 138 0M31 140c38-14 100-14 138 0M48 30c30 8 74 8 104 0M48 170c30-8 74-8 104 0"/></g></svg>';
+  function onReady(fn) { if (document.body) fn(); else document.addEventListener("DOMContentLoaded", fn); }
+  if (isPreview()) {
+    onReady(function () {
+      document.body.innerHTML = '<div class="preview">' + globe.replace("ART", "preview-art") + '<div class="preview-row">' + mark + '<span class="preview-name">Graticule</span></div><div class="preview-line">An instrument for seeing how the Earth becomes a map.</div></div>';
+    });
+    return;
+  }
+  onReady(function () { document.body.innerHTML = '<div class="boot">' + globe.replace("ART", "boot-art") + '</div>'; });
+  var own = new URLSearchParams(location.search).get("path");
+  var dir = own ? own.slice(0, own.lastIndexOf("/")) : location.pathname.slice(0, location.pathname.lastIndexOf("/"));
+  var raw = own ? function (p) { return "/api/fs/raw?path=" + encodeURIComponent(dir + "/" + p); } : function (p) { return dir + "/" + p; };
+  var fonts = document.createElement("style");
+  fonts.textContent =
+    '@font-face{font-family:"Inter Variable";font-style:normal;font-weight:100 900;font-display:swap;src:url("' + raw("fonts/InterVariable.woff2") + '") format("woff2-variations"),url("' + raw("fonts/InterVariable.woff2") + '") format("woff2")}' +
+    '@font-face{font-family:"Newsreader";font-style:normal;font-weight:200 800;font-display:swap;src:url("' + raw("fonts/Newsreader.woff2") + '") format("woff2-variations"),url("' + raw("fonts/Newsreader.woff2") + '") format("woff2")}' +
+    '@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:100 800;font-display:swap;src:url("' + raw("fonts/JetBrainsMono[wght].woff2") + '") format("woff2-variations"),url("' + raw("fonts/JetBrainsMono[wght].woff2") + '") format("woff2")}';
+  document.head.appendChild(fonts);
+  var css = Promise.all(["styles/tokens.css", "styles/shell.css"].map(function (p) {
+    return new Promise(function (resolve) {
+      var l = document.createElement("link");
+      l.rel = "stylesheet";
+      l.href = raw(p);
+      l.onload = resolve;
+      l.onerror = resolve;
+      document.head.appendChild(l);
+    });
+  }));
+  Promise.all([fetch(raw("modules.json")).then(function (r) { return r.json(); }), css]).then(function (all) {
+    var m = all[0];
+    var imports = {};
+    for (var k in m.imports) imports[k] = raw(m.imports[k]);
+    var s = document.createElement("script");
+    s.type = "importmap";
+    s.textContent = JSON.stringify({ imports: imports });
+    document.head.appendChild(s);
+    var lesson = "@/lessons/" + new URLSearchParams(location.search).get("l") + ".js";
+    for (var key in m.imports) {
+      if (!(/^@\/core\//.test(key) || key === lesson || key.indexOf("/") < 0)) continue;
+      var pre = document.createElement("link");
+      pre.rel = "modulepreload";
+      pre.href = imports[key];
+      document.head.appendChild(pre);
+    }
+    var mod = document.createElement("script");
+    mod.type = "module";
+    mod.textContent = 'import { boot } from "@/core/shell.js"; boot(document.body);';
+    document.head.appendChild(mod);
+  }).catch(function (e) {
+    onReady(function () { document.body.innerHTML = '<div class="boot"><div style="color:#6b665e;font-size:13px">Graticule could not start. Open it from the app host.</div></div>'; });
+  });
+})();
+</script>
+</head>
+<body></body>
+</html>

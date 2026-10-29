@@ -1,0 +1,45 @@
+:root {
+  color-scheme: light;
+
+  --bg-0: #f1ede4; --bg: #faf8f3; --bg-2: #faf8f3;
+  --panel: #ffffff; --panel-2: #f1ede5; --raised: #ffffff;
+  --line: #e3ded3; --line-2: #cdc6b7;
+
+  --ink: #1a1917; --ink-2: #3f3c37; --ink-3: #6b665e; --ink-4: #a29c91;
+
+  --brass: #b85217; --brass-ink: #ffffff; --brass-soft: rgba(184,82,23,.12);
+  --signal: #1d63a8; --signal-soft: rgba(29,99,168,.10);
+  --ok: #2f7d4f; --warn: #b7791f; --err: #b42335; --violet: #7046a6;
+  --sun: #e3a20b;
+  --control: #1a1917; --control-ink: #ffffff;
+  --scrim: rgba(40,34,24,.32);
+
+  --font-ui: "Inter Variable", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Newsreader", "Iowan Old Style", Charter, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --t-xs: 600 10.5px/14px var(--font-ui);
+  --t-sm: 400 12.5px/17px var(--font-ui);
+  --t-md: 400 14px/21px var(--font-ui);
+  --t-lg: 600 16px/22px var(--font-ui);
+  --t-xl: 600 20px/26px var(--font-ui);
+  --t-num: 600 18px/22px var(--font-ui);
+  --t-num-lg: 600 26px/30px var(--font-serif);
+
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-7: 32px; --s-8: 48px;
+  --r-sm: 6px; --r: 10px; --r-lg: 14px; --r-xl: 18px;
+
+  --shadow-1: 0 1px 0 rgba(60,45,20,.05), 0 6px 16px -10px rgba(60,45,20,.28);
+  --shadow-2: 0 2px 0 rgba(60,45,20,.05), 0 20px 44px -22px rgba(60,45,20,.40);
+  --inset: inset 0 1px 1px rgba(60,45,20,.10);
+  --satin: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,0));
+  --focus: 0 0 0 2px var(--bg), 0 0 0 4px var(--signal);
+
+  --d-fast: 140ms; --d: 240ms; --d-slow: 480ms; --d-glide: 650ms; --d-morph: 900ms; --d-unroll: 1400ms;
+  --e-standard: cubic-bezier(.2,.8,.2,1); --e-emph: cubic-bezier(.3,0,.1,1);
+  --e-out: cubic-bezier(0,0,.2,1); --e-in: cubic-bezier(.4,0,1,1);
+
+  --nav-w: 264px; --rail-w: 340px; --top-h: 48px; --readout-h: 44px; --transport-h: 44px;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root { --d-fast: 1ms; --d: 1ms; --d-slow: 1ms; --d-glide: 1ms; --d-morph: 1ms; --d-unroll: 1ms; }
+}

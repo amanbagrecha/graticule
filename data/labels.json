@@ -1,0 +1,18 @@
+{
+ "continents": [
+  { "name": "North America", "lon": -100, "lat": 46 },
+  { "name": "South America", "lon": -60, "lat": -14 },
+  { "name": "Europe", "lon": 18, "lat": 52 },
+  { "name": "Africa", "lon": 20, "lat": 8 },
+  { "name": "Asia", "lon": 92, "lat": 46 },
+  { "name": "Australia", "lon": 134, "lat": -25 },
+  { "name": "Antarctica", "lon": 20, "lat": -80 }
+ ],
+ "oceans": [
+  { "name": "Pacific Ocean", "lon": -150, "lat": 5 },
+  { "name": "Atlantic Ocean", "lon": -32, "lat": 20 },
+  { "name": "Indian Ocean", "lon": 78, "lat": -22 },
+  { "name": "Arctic Ocean", "lon": -10, "lat": 83 },
+  { "name": "Southern Ocean", "lon": 100, "lat": -62 }
+ ]
+}

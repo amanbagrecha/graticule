@@ -1,0 +1,65 @@
+{
+ "ellipsoids": {
+  "WGS84": { "name": "WGS 84", "a": 6378137, "invf": 298.257223563 },
+  "GRS80": { "name": "GRS 1980", "a": 6378137, "invf": 298.257222101 },
+  "AIRY1830": { "name": "Airy 1830", "a": 6377563.396, "invf": 299.3249646 },
+  "INTL1924": { "name": "International 1924", "a": 6378388, "invf": 297 },
+  "BESSEL1841": { "name": "Bessel 1841", "a": 6377397.155, "invf": 299.1528128 }
+ },
+ "presets": [
+  {
+   "id": "identity",
+   "label": "identity",
+   "from": "WGS84",
+   "to": "WGS84",
+   "method": "coordinate-frame",
+   "epsg": null,
+   "tx": 0, "ty": 0, "tz": 0, "rx": 0, "ry": 0, "rz": 0, "ds": 0,
+   "accuracy": 0
+  },
+  {
+   "id": "osgb36",
+   "label": "OSGB36→WGS84",
+   "from": "AIRY1830",
+   "to": "WGS84",
+   "method": "position-vector",
+   "epsg": 1314,
+   "area": "Great Britain onshore",
+   "tx": 446.448, "ty": -125.157, "tz": 542.06, "rx": 0.15, "ry": 0.247, "rz": 0.842, "ds": -20.489,
+   "accuracy": 2
+  },
+  {
+   "id": "ed50",
+   "label": "ED50→WGS84 (Europe)",
+   "from": "INTL1924",
+   "to": "WGS84",
+   "method": "geocentric-translation",
+   "epsg": 1133,
+   "area": "Western Europe mean",
+   "tx": -87, "ty": -98, "tz": -121, "rx": 0, "ry": 0, "rz": 0, "ds": 0,
+   "accuracy": 10
+  },
+  {
+   "id": "tokyo",
+   "label": "Tokyo→WGS84",
+   "from": "BESSEL1841",
+   "to": "WGS84",
+   "method": "geocentric-translation",
+   "epsg": 15484,
+   "area": "Japan onshore",
+   "tx": -146.414, "ty": 507.337, "tz": 680.507, "rx": 0, "ry": 0, "rz": 0, "ds": 0,
+   "accuracy": 9
+  },
+  {
+   "id": "custom",
+   "label": "custom",
+   "from": "WGS84",
+   "to": "WGS84",
+   "method": "coordinate-frame",
+   "epsg": null,
+   "tx": 0, "ty": 0, "tz": 0, "rx": 0, "ry": 0, "rz": 0, "ds": 0,
+   "accuracy": null
+  }
+ ],
+ "units": { "tx": "m", "ty": "m", "tz": "m", "rx": "arcsec", "ry": "arcsec", "rz": "arcsec", "ds": "ppm" }
+}

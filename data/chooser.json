@@ -1,0 +1,38 @@
+{
+ "keep": ["area", "angle", "distance", "compromise"],
+ "where": ["world", "hemisphere", "mid-latitude band", "polar", "local strip", "one point"],
+ "table": {
+  "area": {
+   "world": { "projection": "equalEarth", "name": "Equal Earth", "epsg": "EPSG:8857", "reason": "It keeps area and the shapes look natural." },
+   "hemisphere": { "projection": "azimuthalEqualArea", "name": "Lambert azimuthal equal-area", "epsg": "EPSG:3035", "reason": "It keeps area around one centre point." },
+   "mid-latitude band": { "projection": "albers", "name": "Albers equal-area conic", "epsg": "EPSG:5070", "reason": "A cone with two standard parallels keeps area across a wide band." },
+   "polar": { "projection": "easeNorth", "name": "Lambert azimuthal equal-area (polar)", "epsg": "EPSG:6931", "reason": "It keeps area around the pole." },
+   "local strip": { "projection": "azimuthalEqualArea", "name": "Lambert azimuthal equal-area", "epsg": "EPSG:3035", "reason": "Over a small area it keeps area with little shape error." },
+   "one point": { "projection": "azimuthalEqualArea", "name": "Lambert azimuthal equal-area", "epsg": "EPSG:3035", "reason": "It keeps area and centres the map on the point." }
+  },
+  "angle": {
+   "world": { "projection": "mercator", "name": "Mercator", "epsg": "EPSG:3395", "reason": "It keeps angles everywhere, but area grows toward the poles." },
+   "hemisphere": { "projection": "stereographic", "name": "Stereographic", "epsg": null, "reason": "It keeps angles and circles over a hemisphere." },
+   "mid-latitude band": { "projection": "lcc", "name": "Lambert conformal conic", "epsg": "EPSG:3034", "reason": "A cone with two standard parallels keeps angles across a wide band." },
+   "polar": { "projection": "polarNorth3413", "name": "Polar stereographic", "epsg": "EPSG:3413", "reason": "It keeps angles around the pole." },
+   "local strip": { "projection": "transverseMercator", "name": "Transverse Mercator (UTM)", "epsg": "EPSG:32633", "reason": "A cylinder along one meridian keeps angles in a narrow strip." },
+   "one point": { "projection": "stereographic", "name": "Stereographic", "epsg": null, "reason": "It keeps angles around the point." }
+  },
+  "distance": {
+   "world": { "projection": "azimuthalEquidistant", "name": "Azimuthal equidistant", "epsg": "ESRI:54032", "reason": "Distances from the centre are true over the whole world." },
+   "hemisphere": { "projection": "azimuthalEquidistant", "name": "Azimuthal equidistant", "epsg": "ESRI:54032", "reason": "Distances from the centre are true." },
+   "mid-latitude band": { "projection": "eqdc", "name": "Equidistant conic", "epsg": "ESRI:102005", "reason": "Distances along the meridians are true." },
+   "polar": { "projection": "azimuthalEquidistant", "name": "Polar azimuthal equidistant", "epsg": null, "reason": "Distances from the pole are true." },
+   "local strip": { "projection": "cassini", "name": "Cassini (transverse equirectangular)", "epsg": "ESRI:54028", "reason": "Distances along the strip centre line are true." },
+   "one point": { "projection": "azimuthalEquidistant", "name": "Azimuthal equidistant", "epsg": "ESRI:54032", "reason": "Distances and directions from the point are true." }
+  },
+  "compromise": {
+   "world": { "projection": "winkel3", "name": "Winkel tripel", "epsg": "ESRI:54042", "reason": "It shares the error between area and angles." },
+   "hemisphere": { "projection": "orthographic", "name": "Orthographic", "epsg": null, "reason": "It shows the globe as seen from far away." },
+   "mid-latitude band": { "projection": "eqdc", "name": "Equidistant conic", "epsg": "ESRI:102005", "reason": "It keeps area and angle errors small in a band." },
+   "polar": { "projection": "azimuthalEquidistant", "name": "Polar azimuthal equidistant", "epsg": null, "reason": "It keeps area and angle errors moderate around the pole." },
+   "local strip": { "projection": "transverseMercator", "name": "Transverse Mercator", "epsg": null, "reason": "In a narrow strip every error is small." },
+   "one point": { "projection": "orthographic", "name": "Orthographic", "epsg": null, "reason": "It shows the area round the point as seen from space." }
+  }
+ }
+}
